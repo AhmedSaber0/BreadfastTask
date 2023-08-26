@@ -1,16 +1,21 @@
+import dependencies.Dependencies
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-android")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.example.breadfasttask"
-    compileSdk = 33
+    compileSdk = Config.compileSdk
 
     defaultConfig {
         applicationId = "com.example.breadfasttask"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -30,27 +35,30 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Config.javaVersion.toString()
     }
     buildFeatures {
         viewBinding = true
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
+    implementation(project(":core"))
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(Dependencies.Kotlin.stdlib)
+    implementation(Dependencies.AndroidX.ktx)
+    implementation(Dependencies.AndroidX.appcompat)
+    implementation(Dependencies.Google.material)
+
+    implementation(Dependencies.DI.daggerHilt)
+    ksp(Dependencies.DI.daggerHiltCompiler)
+
+    implementation(Dependencies.Networking.loggingInterceptor)
+    implementation(Dependencies.Networking.retrofit)
+    implementation(Dependencies.Networking.retrofitRx)
+    implementation(Dependencies.Networking.moshiConverter)
 }

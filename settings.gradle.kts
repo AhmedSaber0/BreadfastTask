@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "BreadfastTask"
 include(":app")
- 
+include (":core")
+include (":core-testing")
