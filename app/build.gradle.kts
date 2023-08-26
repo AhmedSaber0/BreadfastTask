@@ -6,6 +6,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
 
 android {
@@ -26,6 +27,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -49,13 +53,12 @@ android {
 dependencies {
     implementation(project(":core"))
 
-    implementation(Dependencies.Kotlin.stdlib)
     implementation(Dependencies.AndroidX.ktx)
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.Google.material)
 
     implementation(Dependencies.DI.daggerHilt)
-    ksp(Dependencies.DI.daggerHiltCompiler)
+    kapt(Dependencies.DI.daggerHiltCompiler)
 
     implementation(Dependencies.Networking.loggingInterceptor)
     implementation(Dependencies.Networking.retrofit)

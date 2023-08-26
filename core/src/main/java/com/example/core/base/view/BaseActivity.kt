@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
-import com.example.core.navigation.StartDestination
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
@@ -28,8 +27,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     @get:IdRes
     abstract val navHostId: Int
 
-    abstract fun startDestination(): StartDestination
-
     abstract fun onCreateBinding(inflater: LayoutInflater): VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,18 +39,5 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
         val host = supportFragmentManager.findFragmentById(navHostId) as NavHostFragment
         navController = host.navController
-
-        setupNavigationGraph(graphId = graph, host = host, startDestination = startDestination())
-    }
-
-    private fun setupNavigationGraph(
-        @NavigationRes graphId: Int,
-        host: NavHostFragment,
-        startDestination: StartDestination
-    ) {
-        val inflater = host.navController.navInflater
-        val graph = inflater.inflate(graphId)
-        graph.setStartDestination(startDestination.destination)
-        host.navController.setGraph(graph, startDestination.args)
     }
 }

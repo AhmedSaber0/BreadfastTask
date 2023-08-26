@@ -13,19 +13,17 @@ import androidx.viewbinding.ViewBinding
 import com.example.core.base.viewmodel.BaseViewModel
 import com.example.core.event.EventObserver
 import com.example.core.extension.getThemeColor
-import com.example.core.navigation.CoordinatorEvent
 import com.example.core.viewstate.ViewAction
 import com.example.core.viewstate.ViewEvent
 import com.example.core.viewstate.ViewState
 
 abstract class BaseFragment<
-    VS : ViewState,
-    VE : ViewEvent,
-    VA : ViewAction,
-    CE : CoordinatorEvent,
-    VM : BaseViewModel<VS, VE, VA, CE>,
-    VB : ViewBinding
-    > : Fragment() {
+        VS : ViewState,
+        VE : ViewEvent,
+        VA : ViewAction,
+        VM : BaseViewModel<VS, VE, VA>,
+        VB : ViewBinding
+        > : Fragment() {
 
     protected abstract val viewModel: VM
 
@@ -60,17 +58,11 @@ abstract class BaseFragment<
         super.onViewCreated(view, savedInstanceState)
         viewModel.viewState.observe(viewLifecycleOwner) { renderViewState(it) }
         viewModel.viewEvent.observe(viewLifecycleOwner, EventObserver { renderViewEvent(it) })
-        viewModel.coordinatorEvent.observe(
-            viewLifecycleOwner,
-            EventObserver { coordinatorEvent(it) }
-        )
     }
 
     abstract fun renderViewState(viewState: VS)
 
     abstract fun renderViewEvent(viewEvent: VE)
-
-    abstract fun coordinatorEvent(coordinatorEvent: CE)
 
     protected fun postAction(action: VA) {
         viewModel.postAction(action)

@@ -1,5 +1,49 @@
 import dependencies.Dependencies
 
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+    id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
+}
+
+android {
+    namespace = "com.example.core"
+    compileSdk = Config.compileSdk
+
+    defaultConfig {
+        minSdk = Config.minSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = Config.javaVersion.toString()
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
 dependencies {
     implementation(Dependencies.Kotlin.stdlib)
     implementation(Dependencies.Jetpack.lifecycleRuntime)

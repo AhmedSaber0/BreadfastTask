@@ -5,5 +5,5 @@ object Config {
     const val compileSdk = 33
     const val targetSdk = 33
 
-    val javaVersion = JavaVersion.VERSION_1_8
+    val javaVersion = JavaVersion.VERSION_17
 }
