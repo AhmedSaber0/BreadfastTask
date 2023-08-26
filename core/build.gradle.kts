@@ -41,6 +41,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -58,15 +59,14 @@ dependencies {
 
     implementation(Dependencies.Networking.loggingInterceptor)
     implementation(Dependencies.Networking.retrofit)
-    implementation(Dependencies.Networking.retrofitRx)
+    implementation(Dependencies.Networking.retrofitCoroutine)
     implementation(Dependencies.Networking.moshiConverter)
 
     implementation(Dependencies.DI.daggerHilt)
     kapt(Dependencies.DI.daggerHiltCompiler)
 
-    implementation(Dependencies.Rx.java)
-    implementation(Dependencies.Rx.kotlin)
-    implementation(Dependencies.Rx.android)
+    implementation(Dependencies.Coroutines.coroutineCore)
+    implementation(Dependencies.Coroutines.coroutineAndroid)
 
     testImplementation(Dependencies.Test.junit)
 

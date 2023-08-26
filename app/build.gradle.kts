@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import dependencies.Dependencies
 
 plugins {
@@ -29,9 +30,13 @@ android {
     buildTypes {
         debug {
             isDebuggable = true
+            val baseUrl: String = gradleLocalProperties(rootDir).getProperty("BASE_URL") ?: ""
+            buildConfigField ("String", "BASE_URL", baseUrl)
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            val baseUrl: String = gradleLocalProperties(rootDir).getProperty("BASE_URL") ?: ""
+            buildConfigField ("String", "BASE_URL", baseUrl)
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -47,10 +52,12 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation(project(":posts"))
     implementation(project(":core"))
 
     implementation(Dependencies.AndroidX.ktx)
@@ -62,6 +69,6 @@ dependencies {
 
     implementation(Dependencies.Networking.loggingInterceptor)
     implementation(Dependencies.Networking.retrofit)
-    implementation(Dependencies.Networking.retrofitRx)
+    implementation(Dependencies.Networking.retrofitCoroutine)
     implementation(Dependencies.Networking.moshiConverter)
 }

@@ -51,7 +51,6 @@ dependencies {
 
     implementation(Dependencies.DI.daggerHilt)
     kapt(Dependencies.DI.daggerHiltCompiler)
-    implementation(Dependencies.Rx.java)
-    implementation(Dependencies.Rx.kotlin)
-    implementation(Dependencies.Rx.android)
+    implementation(Dependencies.Coroutines.coroutineCore)
+    implementation(Dependencies.Coroutines.coroutineAndroid)
 }

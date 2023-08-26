@@ -4,11 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.event.Event
 import com.example.core.extension.asLiveData
+import com.example.core.navigation.CoordinatorEvent
 import com.example.core.viewstate.ViewAction
 import com.example.core.viewstate.ViewEvent
 import com.example.core.viewstate.ViewState
 
-abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction> :
+abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction, CE : CoordinatorEvent> :
     ViewModel() {
 
     abstract val initViewState: VS
@@ -19,6 +20,9 @@ abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction> :
     private val _viewEvent = MutableLiveData<Event<VE>>()
     val viewEvent = _viewEvent.asLiveData()
 
+    private val _coordinatorEvent = MutableLiveData<Event<CE>>()
+    val coordinatorEvent = _coordinatorEvent.asLiveData()
+
     abstract fun postAction(action: VA)
 
     fun currentViewState(): VS {
@@ -26,10 +30,14 @@ abstract class BaseViewModel<VS : ViewState, VE : ViewEvent, VA : ViewAction> :
     }
 
     protected fun updateViewState(state: VS) {
-        _viewState.value = state
+        _viewState.postValue(state)
     }
 
     protected fun updateViewEvent(event: VE) {
         _viewEvent.value = Event(event)
+    }
+
+    protected fun sendCoordinatorEvent(event: CE) {
+        _coordinatorEvent.value = Event(event)
     }
 }

@@ -4,10 +4,6 @@ import Versions
 
 object Dependencies {
 
-    object Android {
-        const val gradlePlugin = "com.android.tools.build:gradle:${Versions.Build.gradlePlugin}"
-    }
-
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Kotlin.kotlin}"
         const val gradlePlugin =
@@ -43,7 +39,7 @@ object Dependencies {
 
     object Networking {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.Libraries.retrofit}"
-        const val retrofitRx = "com.squareup.retrofit2:adapter-rxjava3:${Versions.Libraries.retrofit}"
+        const val retrofitCoroutine = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Libraries.retrofitCoroutine}"
         const val moshiConverter =
             "com.squareup.retrofit2:converter-moshi:${Versions.Libraries.retrofit}"
         const val moshi =
@@ -57,10 +53,9 @@ object Dependencies {
             "com.squareup.okhttp3:logging-interceptor:${Versions.Libraries.okhttp}"
     }
 
-    object Rx {
-        const val java = "io.reactivex.rxjava3:rxjava:${Versions.Libraries.rxjava}"
-        const val kotlin = "io.reactivex.rxjava3:rxkotlin:${Versions.Libraries.rxkotlin}"
-        const val android = "io.reactivex.rxjava3:rxandroid:${Versions.Libraries.rxandroid}"
+    object Coroutines {
+        const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Libraries.coroutineCore}"
+        const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Libraries.coroutineandroid}"
     }
 
     object DI {

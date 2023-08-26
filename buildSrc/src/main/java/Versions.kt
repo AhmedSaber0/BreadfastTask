@@ -6,7 +6,7 @@ object Versions {
     }
 
     object Kotlin {
-        const val kotlin = "1.8.0"
+        const val kotlin = "1.8.10"
     }
 
     object AndroidX {
@@ -33,11 +33,11 @@ object Versions {
         const val timber = "5.0.1"
         const val daggerHilt = "2.46"
         const val retrofit = "2.9.0"
+        const val retrofitCoroutine = "0.9.2"
         const val moshi = "1.13.0"
         const val okhttp = "4.9.1"
-        const val rxjava = "3.1.1"
-        const val rxkotlin = "3.0.1"
-        const val rxandroid = "3.0.0"
+        const val coroutineCore = "1.3.9"
+        const val coroutineandroid = "1.3.9"
     }
 
     object Test {

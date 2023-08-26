@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Breadfast.posts" parent="Base.Theme.Breadfast">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand_black_light</item>
+        <item name="colorPrimaryVariant">@color/brand_black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/brand_blue</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColorHighlight">@color/gray</item>
+        <item name="android:background">@color/brand_black</item>
+    </style>
+</resources>

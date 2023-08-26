@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Breadfast</string>
+    <string name="start_search">Start search</string>
+    <string name="delivered_tomorrow">Delivered Tomorrow</string>
+    <string name="temporarily_sold_out">Temporarily sold out</string>
+
+    <string name="internet_error">you have problem with internet connection</string>
+    <string name="server_error">there is a problem try again</string>
+
+    <string name="reviews">%s reviews</string>
+    <string name="retail_price">Retail price</string>
+</resources>
