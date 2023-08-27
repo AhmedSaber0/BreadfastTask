@@ -69,6 +69,4 @@ dependencies {
     implementation(Dependencies.Coroutines.coroutineAndroid)
 
     testImplementation(Dependencies.Test.junit)
-
-    androidTestImplementation(Dependencies.AndroidTest.runner)
 }

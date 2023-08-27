@@ -6,8 +6,6 @@ object Dependencies {
 
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Kotlin.kotlin}"
-        const val gradlePlugin =
-            "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlin}"
     }
 
     object AndroidX {
@@ -39,7 +37,8 @@ object Dependencies {
 
     object Networking {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.Libraries.retrofit}"
-        const val retrofitCoroutine = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Libraries.retrofitCoroutine}"
+        const val retrofitCoroutine =
+            "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Libraries.retrofitCoroutine}"
         const val moshiConverter =
             "com.squareup.retrofit2:converter-moshi:${Versions.Libraries.retrofit}"
         const val moshi =
@@ -54,20 +53,16 @@ object Dependencies {
     }
 
     object Coroutines {
-        const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Libraries.coroutineCore}"
-        const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Libraries.coroutineandroid}"
+        const val coroutineCore =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Libraries.coroutineCore}"
+        const val coroutineAndroid =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Libraries.coroutineAndroid}"
     }
 
     object DI {
-        const val daggerHiltPlugin =
-            "com.google.dagger:hilt-android-gradle-plugin:${Versions.Libraries.daggerHilt}"
         const val daggerHilt = "com.google.dagger:hilt-android:${Versions.Libraries.daggerHilt}"
         const val daggerHiltCompiler =
             "com.google.dagger:hilt-compiler:${Versions.Libraries.daggerHilt}"
-    }
-
-    object Util {
-        const val timber = "com.jakewharton.timber:timber:${Versions.Libraries.timber}"
     }
 
     object Image {
@@ -78,33 +73,10 @@ object Dependencies {
     object Test {
         const val junit = "junit:junit:${Versions.Test.junit}"
         const val core = "androidx.test:core:${Versions.Test.core}"
-        const val arch = "androidx.arch.core:core-testing:${Versions.Jetpack.test}"
-        const val mockitoKotlin =
-            "org.mockito.kotlin:mockito-kotlin:${Versions.Test.mockitokotlin}"
-        const val mockitoInline = "org.mockito:mockito-inline:${Versions.AndroidTest.mockito}"
-        const val robolectric = "org.robolectric:robolectric:${Versions.Test.robolectric}"
-        const val json = "org.json:json:${Versions.Test.json}"
-    }
-
-    object AndroidTest {
-        const val runner = "androidx.test:runner:${Versions.AndroidTest.runner}"
-        const val espresso = "androidx.test.espresso:espresso-core:${Versions.AndroidTest.espresso}"
-        const val espressoContrib =
-            "androidx.test.espresso:espresso-contrib:${Versions.AndroidTest.espresso}"
-        const val intents =
-            "androidx.test.espresso:espresso-intents:${Versions.AndroidTest.espresso}"
-        const val okHttpIdlingResource =
-            "com.jakewharton.espresso:okhttp3-idling-resource:${Versions.AndroidTest.okHttpIdlingResource}"
-        const val rules = "androidx.test:rules:${Versions.AndroidTest.rules}"
-        const val core = "androidx.test:core-ktx:${Versions.AndroidTest.core}"
-        const val truth = "androidx.test.ext:truth:${Versions.AndroidTest.truth}"
-        const val junit = "androidx.test.ext:junit-ktx:${Versions.AndroidTest.junit}"
-        const val emptyGuava =
-            "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
-        const val orchestrator = "androidx.test:orchestrator:${Versions.AndroidTest.orchestrator}"
-        const val restMock =
-            "com.github.andrzejchm.RESTMock:android:${Versions.AndroidTest.restMock}"
-        const val dexmaker =
-            "com.linkedin.dexmaker:dexmaker-mockito-inline:${Versions.AndroidTest.dexmaker}"
+        const val mockkAndroid = "io.mockk:mockk-android:${Versions.Test.mockk}"
+        const val mockk = "io.mockk:mockk:${Versions.Test.mockk}"
+        const val coroutinesTest =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.coroutinesTest}"
+        const val coreTesting = "androidx.arch.core:core-testing:${Versions.Test.coreTesting}"
     }
 }

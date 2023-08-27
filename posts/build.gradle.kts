@@ -75,8 +75,9 @@ dependencies {
     testImplementation(project(":core-testing"))
     testImplementation(Dependencies.Test.junit)
     testImplementation(Dependencies.Test.core)
-    testImplementation(Dependencies.Test.arch)
-    testImplementation(Dependencies.Test.mockitoKotlin)
-    testImplementation(Dependencies.Test.mockitoInline)
+    testImplementation(Dependencies.Test.coreTesting)
+    testImplementation(Dependencies.Test.coroutinesTest)
+    testImplementation(Dependencies.Test.mockk)
+    testImplementation(Dependencies.Test.mockkAndroid)
 
 }
