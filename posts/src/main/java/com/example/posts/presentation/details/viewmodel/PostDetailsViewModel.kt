@@ -35,7 +35,7 @@ class PostDetailsViewModel @Inject constructor(
                     PostDetailsViewState.Success(
                         postComments = emptyList(),
                         postDetails = action.uiModel,
-                        empty = false
+                        empty = true
                     )
                 )
             }
