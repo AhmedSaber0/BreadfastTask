@@ -9,12 +9,15 @@
 * Coroutines
 * Retrofit
 * Moshi
-* Dagger Hilt 
+* Dagger Hilt
 
+[![splash.jpg](https://i.postimg.cc/x8BdH5PR/splash.jpg)](https://postimg.cc/CnHYpjXB)
 
-[url=https://postimg.cc/jnrK18gY][img]https://i.postimg.cc/jnrK18gY/details.jpg[/img][/url]
+[![posts.jpg](https://i.postimg.cc/zDQv9D1g/posts.jpg)](https://postimg.cc/NL1QXcFs)
 
-[url=https://postimg.cc/NL1QXcFs][img]https://i.postimg.cc/NL1QXcFs/posts.jpg[/img][/url]
+[![details.jpg](https://i.postimg.cc/RhWFNywh/details.jpg)](https://postimg.cc/jnrK18gY)
 
-[url=https://postimg.cc/CnHYpjXB][img]https://i.postimg.cc/CnHYpjXB/splash.jpg[/img][/url]
+Used Apis from [gorest](https://gorest.co.in/)
+Posts Api https://gorest.co.in/public/v2/posts
+Comments Api https://gorest.co.in/public/v2/posts/64409/comments
 
