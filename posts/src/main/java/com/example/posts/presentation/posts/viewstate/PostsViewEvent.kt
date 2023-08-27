@@ -4,7 +4,5 @@ import com.example.core.viewstate.ViewEvent
 
 sealed class PostsViewEvent : ViewEvent {
 
-    object NextPageError : PostsViewEvent()
-
-    object NoInternet : PostsViewEvent()
+    data object NoInternet : PostsViewEvent()
 }

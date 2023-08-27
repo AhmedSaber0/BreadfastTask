@@ -1,6 +1,9 @@
 package com.example.posts.data.repository
 
+import com.example.core.data.ApiResult
 import com.example.posts.data.datasource.PostsRemoteDataSource
+import com.example.posts.data.mapper.PostMapper
+import com.example.posts.data.model.PostEntity
 import com.example.posts.domain.model.Post
 import com.example.posts.test.factory.PostFactory
 import io.reactivex.rxjava3.core.Single
@@ -13,11 +16,11 @@ import org.mockito.kotlin.whenever
 class PostsRepositoryImplTest {
 
     private val postsRemoteDataSource = mock<PostsRemoteDataSource>()
-    private val postsResultMapper = mock<PostsResultMapper>()
+    private val postMapper = mock<PostMapper>()
 
     private val postsRepositoryImpl = PostsRepositoryImpl(
         postsRemoteDataSource = postsRemoteDataSource,
-        postsResultMapper = postsResultMapper
+        postMapper = postMapper
     )
 
     @Test
@@ -26,9 +29,9 @@ class PostsRepositoryImplTest {
 
         stubGetPosts(Single.never())
 
-        postsRepositoryImpl.getPosts(pageSize = pageSize)
+        postsRepositoryImpl.getPosts()
 
-        verify(postsRemoteDataSource).getPosts(pageSize = pageSize)
+        verify(postsRemoteDataSource).getPosts()
     }
 
     @Test
@@ -40,7 +43,7 @@ class PostsRepositoryImplTest {
         (Single.just(entity))
         stubPostsResultMapper(domain)
 
-        val testObservable = postsRepositoryImpl.getPosts(pageSize = pageSize).test()
+        val testObservable = postsRepositoryImpl.getPosts().test()
 
         testObservable.assertResult(domain)
     }
@@ -49,7 +52,7 @@ class PostsRepositoryImplTest {
         whenever(postsResultMapper.map(any())).thenReturn(posts)
     }
 
-    private fun stubGetPosts(single: Single<PostsResultEntity>) {
-        whenever(postsRemoteDataSource.getPosts(pageSize = 10)).thenReturn(single)
+    private fun stubGetPosts(posts: ApiResult<List<PostEntity>>) {
+        whenever(postsRemoteDataSource.getPosts()).thenReturn(posts)
     }
 }

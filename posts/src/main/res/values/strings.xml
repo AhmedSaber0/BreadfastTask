@@ -9,4 +9,5 @@
 
     <string name="reviews">%s reviews</string>
     <string name="retail_price">Retail price</string>
+    <string name="comments">Comments</string>
 </resources>

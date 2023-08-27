@@ -26,6 +26,18 @@
         app:layout_constraintTop_toBottomOf="@id/post_name_textview"
         tools:text="Post Body" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/comments_label_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_16"
+        android:text="@string/comments"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/post_body_textview" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/comments_recyclerView"
         android:layout_width="match_parent"
@@ -33,7 +45,7 @@
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/post_body_textview"
+        app:layout_constraintTop_toBottomOf="@id/comments_label_textview"
         tools:itemCount="5"
         tools:listitem="@layout/adapter_comment" />
 

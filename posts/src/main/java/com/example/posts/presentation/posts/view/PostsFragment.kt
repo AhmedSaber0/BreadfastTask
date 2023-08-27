@@ -67,16 +67,14 @@ class PostsFragment : BaseFragment<
                 postsAdapter.submitList(viewState.posts)
             }
 
-            is PostsViewState.Error ->
+            is PostsViewState.Error -> {
                 showToast(requireContext(), R.string.server_error)
+            }
         }
     }
 
     override fun renderViewEvent(viewEvent: PostsViewEvent) {
         when (viewEvent) {
-            is PostsViewEvent.NextPageError ->
-                showToast(requireContext(), R.string.server_error)
-
             is PostsViewEvent.NoInternet ->
                 showToast(requireContext(), R.string.internet_error)
         }
